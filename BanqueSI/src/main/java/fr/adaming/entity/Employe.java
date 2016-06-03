@@ -12,6 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 @Entity
 public class Employe implements Serializable {
 	
@@ -47,18 +50,22 @@ public class Employe implements Serializable {
 		this.nomEmploye = nomEmploye;
 	}
 
+	@JsonIgnore	//Sera ignore lors de la consultation employe
 	public Employe getSuperieurHierarchique() {
 		return superieurHierarchique;
 	}
 
+	@JsonSetter	//Sera quand meme set malgre le jsonIgnore
 	public void setSuperieurHierarchique(Employe superieurHierarchique) {
 		this.superieurHierarchique = superieurHierarchique;
 	}
 
+	@JsonIgnore	//Sera ignore lors de la consultation employe
 	public List<Groupe> getGroupes() {
 		return groupes;
 	}
 
+	@JsonSetter	//Sera quand meme set malgre le jsonIgnore
 	public void setGroupes(List<Groupe> groupes) {
 		this.groupes = groupes;
 	}

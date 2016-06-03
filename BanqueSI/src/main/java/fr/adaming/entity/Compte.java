@@ -16,9 +16,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TypeCompte", length=2, discriminatorType=DiscriminatorType.STRING)					//Une table en base pour tous nos comptes.
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="type")	//Informer json de notre mapping
+@JsonSubTypes({
+	@Type(name="CC", value=CompteCourant.class),
+	@Type(name="CE", value=CompteEpargne.class)
+})
 public abstract class Compte implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -31,11 +40,11 @@ public abstract class Compte implements Serializable {
 	private Date dateCreation;
 	
 	@ManyToOne
-	@JoinColumn(name="codeClient")
+	@JoinColumn(name="idClient")
 	private Client proprietaire;
 	
 	@ManyToOne
-	@JoinColumn(name="codeEmploye")
+	@JoinColumn(name="idEmploye")
 	private Employe employe;
 	
 	@OneToMany(mappedBy="compte")
@@ -94,7 +103,7 @@ public abstract class Compte implements Serializable {
 	
 	//CONSTRUCTEURS
 	public Compte() {
-		
+		this.dateCreation = new Date();	//Normalement il faudrait le faire dans code metier
 	}
 
 	public Compte(double solde) {

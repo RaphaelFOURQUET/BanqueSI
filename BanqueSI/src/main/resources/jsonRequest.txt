@@ -1,0 +1,9 @@
+Client :
+	{"nomClient":"Client1"}
+	
+Employe :
+	{"nomEmploye":"Employe1"}
+	{"nomEmploye":"Employe2", "superieurHierarchique":{"idEmploye":1}}
+
+Compte :
+	{"solde":250000,"type":"CC","decouvert":1000,"proprietaire":{"idClient":1}, "employe":{"idEmploye":1}}
