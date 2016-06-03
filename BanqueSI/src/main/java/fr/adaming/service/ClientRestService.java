@@ -24,7 +24,7 @@ public class ClientRestService {
 		return clientMetier.saveClient(c);
 	}
 
-	@RequestMapping(value="/clients",method=RequestMethod.GET)
+	@RequestMapping(value="/clients",method=RequestMethod.GET)	//Selon REST : clients pour mapper et post pour save Get pour recuperer
 	public List<Client> listClients() {
 		return clientMetier.listClients();
 	}
