@@ -1,12 +1,11 @@
 package fr.adaming.metier;
 
-import java.util.List;
-
 import fr.adaming.entity.Client;
 
-public interface IClientMetier {
+public interface IClientMetier extends IGeneriqueMetier<Client> {	//extends pour utiliser une interface generique
 	
-	public Client saveClient(Client c);
-	public List<Client> listClients();
+	//Sans interface generique
+//	public Client saveClient(Client c);
+//	public List<Client> listClients();
 
 }

@@ -35,7 +35,7 @@ public class Employe implements Serializable {
 		return idEmploye;
 	}
 
-	public void setiDEmploye(Long codeEmploye) {
+	public void setIdEmploye(Long codeEmploye) {
 		this.idEmploye = codeEmploye;
 	}
 
@@ -43,8 +43,8 @@ public class Employe implements Serializable {
 		return nomEmploye;
 	}
 
-	public void setNomEmploye(String nom) {
-		this.nomEmploye = nom;
+	public void setNomEmploye(String nomEmploye) {
+		this.nomEmploye = nomEmploye;
 	}
 
 	public Employe getSuperieurHierarchique() {

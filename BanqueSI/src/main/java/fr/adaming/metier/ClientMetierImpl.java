@@ -12,16 +12,16 @@ import fr.adaming.entity.Client;
 public class ClientMetierImpl implements IClientMetier {
 	
 	@Autowired
-	private IClientRepositoryDao clientRepository;
+	private IClientRepositoryDao clientRepositoryDao;
 
 	@Override
-	public Client saveClient(Client c) {
-		return clientRepository.save(c);
+	public Client save(Client c) {
+		return clientRepositoryDao.save(c);
 	}
 
 	@Override
-	public List<Client> listClients() {
-		return clientRepository.findAll();
+	public List<Client> list() {
+		return clientRepositoryDao.findAll();
 	}
 
 }

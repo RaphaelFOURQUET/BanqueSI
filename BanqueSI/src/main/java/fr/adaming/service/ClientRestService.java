@@ -21,12 +21,12 @@ public class ClientRestService {
 	@RequestMapping(value="/clients",method=RequestMethod.POST)	//Selon REST : clients pour mapper et post pour save Get pour recuperer
 	//@ResponseBody		//retour au format JSON, implicite si RestController sur classe
 	public Client saveClient(@RequestBody Client c) {	//Recupere les donnes au format JSON
-		return clientMetier.saveClient(c);
+		return clientMetier.save(c);
 	}
 
 	@RequestMapping(value="/clients",method=RequestMethod.GET)	//Selon REST : clients pour mapper et post pour save Get pour recuperer
 	public List<Client> listClients() {
-		return clientMetier.listClients();
+		return clientMetier.list();
 	}
 	
 }
