@@ -19,7 +19,7 @@ public abstract class Operation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.TABLE)
-	private int idOperation;
+	private Long idOperation;
 	
 	private Date dateOperation;
 	
@@ -34,11 +34,11 @@ public abstract class Operation implements Serializable {
 	private Employe employe;
 
 	//ACCESSEURS
-	public int getNumOperation() {
+	public Long getNumOperation() {
 		return idOperation;
 	}
 
-	public void setNumOperation(int numOperation) {
+	public void setNumOperation(Long numOperation) {
 		this.idOperation = numOperation;
 	}
 

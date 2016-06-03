@@ -18,7 +18,7 @@ public class Employe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int idEmploye;
+	private Long idEmploye;
 
 	private String nomEmploye;
 	
@@ -31,11 +31,11 @@ public class Employe implements Serializable {
 	private List<Groupe> groupes;
 
 	//ACCESSEURS
-	public int getCodeEmploye() {
+	public Long getCodeEmploye() {
 		return idEmploye;
 	}
 
-	public void setCodeEmploye(int codeEmploye) {
+	public void setCodeEmploye(Long codeEmploye) {
 		this.idEmploye = codeEmploye;
 	}
 

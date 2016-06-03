@@ -24,7 +24,7 @@ public abstract class Compte implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int idCompte;
+	private Long idCompte;
 	
 	private double solde;
 	
@@ -42,11 +42,11 @@ public abstract class Compte implements Serializable {
 	private Collection<Operation> operations;
 	
 	//ACCESSEURS
-	public int getNumCompte() {
+	public Long getNumCompte() {
 		return idCompte;
 	}
 
-	public void setNumCompte(int numCompte) {
+	public void setNumCompte(Long numCompte) {
 		this.idCompte = numCompte;
 	}
 

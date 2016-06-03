@@ -18,7 +18,7 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int idClient;
+	private Long idClient;
 	
 	private String nomClient;
 	
@@ -26,11 +26,11 @@ public class Client implements Serializable {
 	private List<Compte> comptes;
 	
 	//ACCESSEURS
-	public int getCodeClient() {
+	public Long getCodeClient() {
 		return idClient;
 	}
 
-	public void setCodeClient(int codeClient) {
+	public void setCodeClient(Long codeClient) {
 		this.idClient = codeClient;
 	}
 
