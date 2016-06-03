@@ -193,7 +193,7 @@
 											"$ref": "AAAAAAFVFSUU8XhUq3M="
 										},
 										"visibility": "public",
-										"navigable": false,
+										"navigable": true,
 										"aggregation": "none",
 										"multiplicity": "0..*",
 										"isReadOnly": false,
