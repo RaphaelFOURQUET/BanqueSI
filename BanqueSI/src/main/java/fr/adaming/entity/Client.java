@@ -15,9 +15,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Client implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,7 +22,7 @@ public class Client implements Serializable {
 	
 	private String nom;
 	
-	@OneToMany(mappedBy="client", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="proprietaire", fetch=FetchType.LAZY)
 	private List<Compte> comptes;
 	
 	//ACCESSEURS

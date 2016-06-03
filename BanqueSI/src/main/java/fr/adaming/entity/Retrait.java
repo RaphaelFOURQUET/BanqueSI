@@ -4,5 +4,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Retrait extends Operation {
-	//TODO
+
+	private static final long serialVersionUID = 1L;
+
 }

@@ -1,26 +1,33 @@
 package fr.adaming.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Employe {
+public class Employe implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int codeEmploye;
 
 	private String nom;
 	
 	@ManyToOne
+	@JoinColumn(name="superieur")
 	private Employe superieurHierarchique;
 	
 	@ManyToMany
+	@JoinTable(name="employe_groupe")
 	private List<Groupe> groupes;
 
 	//ACCESSEURS

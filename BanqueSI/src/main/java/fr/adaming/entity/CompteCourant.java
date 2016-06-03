@@ -1,9 +1,13 @@
 package fr.adaming.entity;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-public class CompteCourant extends Compte {
+@DiscriminatorValue("CC")			//TypeCompte=CC
+public class CompteCourant extends Compte {	
+	
+	private static final long serialVersionUID = 1L;
 	
 	private double decouvert;
 

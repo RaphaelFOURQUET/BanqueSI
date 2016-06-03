@@ -1,14 +1,28 @@
 package fr.adaming.entity;
 
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-public abstract class Compte {
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TypeCompte", length=2, discriminatorType=DiscriminatorType.STRING)					//Une table en base pour tous nos comptes.
+public abstract class Compte implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int numCompte;
 	
@@ -16,8 +30,16 @@ public abstract class Compte {
 	
 	private Date dateCreation;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="codeClient")
 	private Client proprietaire;
+	
+	@ManyToOne
+	@JoinColumn(name="codeEmploye")
+	private Employe employe;
+	
+	@OneToMany(mappedBy="compte")
+	private Collection<Operation> operations;
 	
 	//ACCESSEURS
 	public int getNumCompte() {
@@ -52,6 +74,22 @@ public abstract class Compte {
 		this.proprietaire = proprietaire;
 	}
 	
+	public Employe getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
+	}
+
+	public Collection<Operation> getOperations() {
+		return operations;
+	}
+
+	public void setOperations(Collection<Operation> operations) {
+		this.operations = operations;
+	}
+	
 	
 	
 	//CONSTRUCTEURS
@@ -67,8 +105,13 @@ public abstract class Compte {
 
 	@Override
 	public String toString() {
+		String myOperations = "[";
+		for(Operation o : operations) {
+			myOperations += o.getNumOperation()+", ";
+		}
+		myOperations += "]";
 		return "Compte [numCompte=" + numCompte + ", solde=" + solde + ", dateCreation=" + dateCreation
-				+ ", proprietaire=" + proprietaire.getNom() + "]";
+				+ ", proprietaire=" + proprietaire.getNom() + ", employe=" +employe.getNom() + ", operations=" + myOperations + "]";
 	}
 	
 	
