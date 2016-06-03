@@ -34,12 +34,12 @@ public abstract class Operation implements Serializable {
 	private Employe employe;
 
 	//ACCESSEURS
-	public Long getNumOperation() {
+	public Long getIdOperation() {
 		return idOperation;
 	}
 
-	public void setNumOperation(Long numOperation) {
-		this.idOperation = numOperation;
+	public void setIdOperation(Long idOperation) {
+		this.idOperation = idOperation;
 	}
 
 	public Date getDateOperation() {

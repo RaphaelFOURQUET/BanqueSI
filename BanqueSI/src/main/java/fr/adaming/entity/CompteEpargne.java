@@ -25,8 +25,8 @@ public class CompteEpargne extends Compte {
 
 	@Override
 	public String toString() {
-		return "CompteEpargne [numCompte=" + getNumCompte() + ", solde=" + getSolde() + ", dateCreation=" + getDateCreation()
-				+ ", proprietaire=" + getProprietaire().getNom() +", tauxInteret=" + tauxInteret + "]";
+		return "CompteEpargne [numCompte=" + getIdCompte() + ", solde=" + getSolde() + ", dateCreation=" + getDateCreation()
+				+ ", proprietaire=" + getProprietaire().getNomClient() +", tauxInteret=" + tauxInteret + "]";
 	}
 
 	

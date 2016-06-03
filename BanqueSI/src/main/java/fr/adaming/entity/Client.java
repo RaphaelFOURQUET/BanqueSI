@@ -34,11 +34,11 @@ public class Client implements Serializable {
 		this.idClient = codeClient;
 	}
 
-	public String getNom() {
+	public String getNomClient() {
 		return nomClient;
 	}
 
-	public void setNom(String nom) {
+	public void setNomClient(String nom) {
 		this.nomClient = nom;
 	}
 
@@ -65,7 +65,7 @@ public class Client implements Serializable {
 	public String toString() {
 		String myComptes = "["; //for each ajouter nomClient au lieu de tout
 		for(Compte p : comptes) {
-			myComptes += p.getNumCompte()+", ";
+			myComptes += p.getIdCompte()+", ";
 		}
 		myComptes += "]";
 		return "Client [idClient=" + idClient + ", nomClient=" + nomClient + ", comptes=" + myComptes + "]";

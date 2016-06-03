@@ -42,11 +42,11 @@ public abstract class Compte implements Serializable {
 	private Collection<Operation> operations;
 	
 	//ACCESSEURS
-	public Long getNumCompte() {
+	public Long getIdCompte() {
 		return idCompte;
 	}
 
-	public void setNumCompte(Long numCompte) {
+	public void setIdCompte(Long numCompte) {
 		this.idCompte = numCompte;
 	}
 
@@ -107,11 +107,11 @@ public abstract class Compte implements Serializable {
 	public String toString() {
 		String myOperations = "[";
 		for(Operation o : operations) {
-			myOperations += o.getNumOperation()+", ";
+			myOperations += o.getIdOperation()+", ";
 		}
 		myOperations += "]";
 		return "Compte [idCompte=" + idCompte + ", solde=" + solde + ", dateCreation=" + dateCreation
-				+ ", proprietaire=" + proprietaire.getNom() + ", employe=" +employe.getNom() + ", operations=" + myOperations + "]";
+				+ ", proprietaire=" + proprietaire.getNomClient() + ", employe=" +employe.getNomEmploye() + ", operations=" + myOperations + "]";
 	}
 	
 	

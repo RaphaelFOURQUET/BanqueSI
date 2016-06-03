@@ -23,19 +23,19 @@ public class Groupe implements Serializable {
 	private Collection<Employe> employes;
 
 	//ACCESSEURS
-	public Long getNumGroupe() {
+	public Long getIdGroupe() {
 		return idGroupe;
 	}
 
-	public void setNumGroupe(Long numGroupe) {
-		this.idGroupe = numGroupe;
+	public void setIdGroupe(Long idGroupe) {
+		this.idGroupe = idGroupe;
 	}
 
-	public String getNom() {
+	public String getNomGroupe() {
 		return nomGroupe;
 	}
 
-	public void setNom(String nom) {
+	public void setNomGroupe(String nom) {
 		this.nomGroupe = nom;
 	}
 
@@ -61,7 +61,7 @@ public class Groupe implements Serializable {
 	public String toString() {
 		String myEmployes="[";
 		for(Employe e : employes) {
-			myEmployes+=e.getNom()+", ";
+			myEmployes+=e.getNomEmploye()+", ";
 		}
 		myEmployes+="]";
 		return "Groupe [idGroupe=" + idGroupe + ", nomGroupe=" + nomGroupe + ", employes=" + myEmployes + "]";

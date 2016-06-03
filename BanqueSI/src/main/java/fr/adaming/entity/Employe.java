@@ -31,19 +31,19 @@ public class Employe implements Serializable {
 	private List<Groupe> groupes;
 
 	//ACCESSEURS
-	public Long getCodeEmploye() {
+	public Long getIdEmploye() {
 		return idEmploye;
 	}
 
-	public void setCodeEmploye(Long codeEmploye) {
+	public void setiDEmploye(Long codeEmploye) {
 		this.idEmploye = codeEmploye;
 	}
 
-	public String getNom() {
+	public String getNomEmploye() {
 		return nomEmploye;
 	}
 
-	public void setNom(String nom) {
+	public void setNomEmploye(String nom) {
 		this.nomEmploye = nom;
 	}
 
@@ -72,10 +72,10 @@ public class Employe implements Serializable {
 	public String toString() {
 		String myGroupes = "["; //for each ajouter nomEmploye au lieu de tout
 		for(Groupe g : groupes) {
-			myGroupes += g.getNom()+", ";
+			myGroupes += g.getNomGroupe()+", ";
 		}
 		return "Employe [idEmploye=" + idEmploye + ", nomEmploye=" + nomEmploye + ", superieurHierarchique="
-				+ superieurHierarchique.getNom() + ", groupes=" + myGroupes + "]";
+				+ superieurHierarchique.getNomEmploye() + ", groupes=" + myGroupes + "]";
 	}
 	
 	

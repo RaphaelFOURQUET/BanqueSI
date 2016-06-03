@@ -25,8 +25,8 @@ public class CompteCourant extends Compte {
 	
 	@Override
 	public String toString() {
-		return "CompteCourante [numCompte=" + getNumCompte() + ", solde=" + getSolde() + ", dateCreation=" + getDateCreation()
-				+ ", proprietaire=" + getProprietaire().getNom() +", decouvert=" + decouvert + "]";
+		return "CompteCourante [numCompte=" + getIdCompte() + ", solde=" + getSolde() + ", dateCreation=" + getDateCreation()
+				+ ", proprietaire=" + getProprietaire().getNomClient() +", decouvert=" + decouvert + "]";
 	}
 
 }
