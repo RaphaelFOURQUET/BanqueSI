@@ -15,28 +15,28 @@ public class Groupe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int numGroupe;
+	private int idGroupe;
 	
-	private String nom;
+	private String nomGroupe;
 	
 	@ManyToMany(mappedBy="groupes")
 	private Collection<Employe> employes;
 
 	//ACCESSEURS
 	public int getNumGroupe() {
-		return numGroupe;
+		return idGroupe;
 	}
 
 	public void setNumGroupe(int numGroupe) {
-		this.numGroupe = numGroupe;
+		this.idGroupe = numGroupe;
 	}
 
 	public String getNom() {
-		return nom;
+		return nomGroupe;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nomGroupe = nom;
 	}
 
 	public Collection<Employe> getEmployes() {
@@ -54,7 +54,7 @@ public class Groupe implements Serializable {
 	
 	public Groupe(String nom) {
 		super();
-		this.nom = nom;
+		this.nomGroupe = nom;
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class Groupe implements Serializable {
 			myEmployes+=e.getNom()+", ";
 		}
 		myEmployes+="]";
-		return "Groupe [numGroupe=" + numGroupe + ", nom=" + nom + ", employes=" + myEmployes + "]";
+		return "Groupe [idGroupe=" + idGroupe + ", nomGroupe=" + nomGroupe + ", employes=" + myEmployes + "]";
 	}
 	
 	

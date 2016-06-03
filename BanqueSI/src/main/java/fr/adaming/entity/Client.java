@@ -18,28 +18,28 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int codeClient;
+	private int idClient;
 	
-	private String nom;
+	private String nomClient;
 	
 	@OneToMany(mappedBy="proprietaire", fetch=FetchType.LAZY)
 	private List<Compte> comptes;
 	
 	//ACCESSEURS
 	public int getCodeClient() {
-		return codeClient;
+		return idClient;
 	}
 
 	public void setCodeClient(int codeClient) {
-		this.codeClient = codeClient;
+		this.idClient = codeClient;
 	}
 
 	public String getNom() {
-		return nom;
+		return nomClient;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nomClient = nom;
 	}
 
 	public List<Compte> getComptes() {
@@ -58,17 +58,17 @@ public class Client implements Serializable {
 	
 	public Client(String nom) {
 		super();
-		this.nom = nom;
+		this.nomClient = nom;
 	}
 
 	@Override
 	public String toString() {
-		String myComptes = "["; //for each ajouter nom au lieu de tout
+		String myComptes = "["; //for each ajouter nomClient au lieu de tout
 		for(Compte p : comptes) {
 			myComptes += p.getNumCompte()+", ";
 		}
 		myComptes += "]";
-		return "Client [codeClient=" + codeClient + ", nom=" + nom + ", comptes=" + myComptes + "]";
+		return "Client [idClient=" + idClient + ", nomClient=" + nomClient + ", comptes=" + myComptes + "]";
 	}
 	
 	

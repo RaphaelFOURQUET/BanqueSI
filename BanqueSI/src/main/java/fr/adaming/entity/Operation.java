@@ -19,7 +19,7 @@ public abstract class Operation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.TABLE)
-	private int numOperation;
+	private int idOperation;
 	
 	private Date dateOperation;
 	
@@ -35,11 +35,11 @@ public abstract class Operation implements Serializable {
 
 	//ACCESSEURS
 	public int getNumOperation() {
-		return numOperation;
+		return idOperation;
 	}
 
 	public void setNumOperation(int numOperation) {
-		this.numOperation = numOperation;
+		this.idOperation = numOperation;
 	}
 
 	public Date getDateOperation() {
@@ -79,7 +79,7 @@ public abstract class Operation implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Operation [numOperation=" + numOperation + ", dateOperation=" + dateOperation + ", montant=" + montant
+		return "Operation [idOperation=" + idOperation + ", dateOperation=" + dateOperation + ", montant=" + montant
 				+ "]";
 	}
 	

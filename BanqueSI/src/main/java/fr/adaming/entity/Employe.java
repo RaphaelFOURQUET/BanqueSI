@@ -18,9 +18,9 @@ public class Employe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int codeEmploye;
+	private int idEmploye;
 
-	private String nom;
+	private String nomEmploye;
 	
 	@ManyToOne
 	@JoinColumn(name="superieur")
@@ -32,19 +32,19 @@ public class Employe implements Serializable {
 
 	//ACCESSEURS
 	public int getCodeEmploye() {
-		return codeEmploye;
+		return idEmploye;
 	}
 
 	public void setCodeEmploye(int codeEmploye) {
-		this.codeEmploye = codeEmploye;
+		this.idEmploye = codeEmploye;
 	}
 
 	public String getNom() {
-		return nom;
+		return nomEmploye;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nomEmploye = nom;
 	}
 
 	public Employe getSuperieurHierarchique() {
@@ -70,11 +70,11 @@ public class Employe implements Serializable {
 
 	@Override
 	public String toString() {
-		String myGroupes = "["; //for each ajouter nom au lieu de tout
+		String myGroupes = "["; //for each ajouter nomEmploye au lieu de tout
 		for(Groupe g : groupes) {
 			myGroupes += g.getNom()+", ";
 		}
-		return "Employe [codeEmploye=" + codeEmploye + ", nom=" + nom + ", superieurHierarchique="
+		return "Employe [idEmploye=" + idEmploye + ", nomEmploye=" + nomEmploye + ", superieurHierarchique="
 				+ superieurHierarchique.getNom() + ", groupes=" + myGroupes + "]";
 	}
 	

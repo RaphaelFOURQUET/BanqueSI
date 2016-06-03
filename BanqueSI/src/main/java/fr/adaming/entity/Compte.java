@@ -24,7 +24,7 @@ public abstract class Compte implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int numCompte;
+	private int idCompte;
 	
 	private double solde;
 	
@@ -43,11 +43,11 @@ public abstract class Compte implements Serializable {
 	
 	//ACCESSEURS
 	public int getNumCompte() {
-		return numCompte;
+		return idCompte;
 	}
 
 	public void setNumCompte(int numCompte) {
-		this.numCompte = numCompte;
+		this.idCompte = numCompte;
 	}
 
 	public double getSolde() {
@@ -110,7 +110,7 @@ public abstract class Compte implements Serializable {
 			myOperations += o.getNumOperation()+", ";
 		}
 		myOperations += "]";
-		return "Compte [numCompte=" + numCompte + ", solde=" + solde + ", dateCreation=" + dateCreation
+		return "Compte [idCompte=" + idCompte + ", solde=" + solde + ", dateCreation=" + dateCreation
 				+ ", proprietaire=" + proprietaire.getNom() + ", employe=" +employe.getNom() + ", operations=" + myOperations + "]";
 	}
 	
