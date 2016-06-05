@@ -3,6 +3,7 @@ package fr.adaming.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +18,11 @@ public class EmployeRestService {
 	
 	@Autowired	//injection dependances
 	private IEmployeMetier employeMetier;
+
+	@RequestMapping(value="/employes/{idEmploye}",method=RequestMethod.GET)
+	public Employe getById(@PathVariable("idEmploye") Long idEmploye) {
+		return employeMetier.getById(idEmploye);
+	}
 
 	@RequestMapping(value="/employes",method=RequestMethod.POST)
 	public Employe save(@RequestBody Employe t) {

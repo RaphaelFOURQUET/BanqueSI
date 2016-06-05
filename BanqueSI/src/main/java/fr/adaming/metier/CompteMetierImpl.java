@@ -21,13 +21,13 @@ public class CompteMetierImpl implements ICompteMetier {
 	}
 
 	@Override
-	public Compte getCompte(Long idCompte) {
-		return compteRepositoryDao.getOne(idCompte);
+	public List<Compte> list() {
+		return compteRepositoryDao.findAll();
 	}
 
 	@Override
-	public List<Compte> list() {
-		return compteRepositoryDao.findAll();
+	public Compte getById(Long id) {
+		return compteRepositoryDao.findOne(id);
 	}
 
 }
