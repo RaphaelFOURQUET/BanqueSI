@@ -12,6 +12,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)		//Une table par classe
 public abstract class Operation implements Serializable {
@@ -30,7 +33,7 @@ public abstract class Operation implements Serializable {
 	private Compte compte;
 	
 	@ManyToOne
-	@JoinColumn(name="comeEmploye")
+	@JoinColumn(name="codeEmploye")
 	private Employe employe;
 
 	//ACCESSEURS
@@ -58,12 +61,24 @@ public abstract class Operation implements Serializable {
 		this.montant = montant;
 	}
 
+	@JsonIgnore
 	public Compte getCompte() {
 		return compte;
 	}
 
+	@JsonSetter
 	public void setCompte(Compte compte) {
 		this.compte = compte;
+	}
+
+	@JsonIgnore
+	public Employe getEmploye() {
+		return employe;
+	}
+
+	@JsonSetter
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
 	}
 
 	//CONSTRUCTEURS

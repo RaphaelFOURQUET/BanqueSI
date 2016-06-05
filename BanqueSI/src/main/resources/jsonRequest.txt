@@ -7,3 +7,10 @@ Employe :
 
 Compte :
 	{"solde":250000,"type":"CC","decouvert":1000,"proprietaire":{"codeClient":1}, "employe":{"idEmploye":1}}
+	
+Groupe :
+	{"nomGroupe":"groupe1"}
+	
+Retrait/Versement :
+	{"montant":50, "codeCompte":1, "codeEmploye":1}
+	
