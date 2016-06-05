@@ -24,4 +24,9 @@ public class ClientMetierImpl implements IClientMetier {
 		return clientRepositoryDao.findAll();
 	}
 
+	@Override
+	public Client getById(Long id) {
+		return clientRepositoryDao.findOne(id);
+	}
+
 }

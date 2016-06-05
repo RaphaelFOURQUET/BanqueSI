@@ -24,4 +24,9 @@ public class EmployeMetierImpl implements IEmployeMetier {
 		return employeRepositoryDao.findAll();
 	}
 
+	@Override
+	public Employe getById(Long id) {
+		return employeRepositoryDao.findOne(id);
+	}
+
 }

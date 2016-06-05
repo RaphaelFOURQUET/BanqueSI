@@ -2,9 +2,8 @@ package fr.adaming.service;
 
 import java.util.List;
 
-import javax.ws.rs.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,8 +29,8 @@ public class CompteRestService {
 	}
 	
 	@RequestMapping(value="/comptes/{idCompte}",method=RequestMethod.GET)
-	public Compte getCompte(@PathParam("idCompte") Long idCompte) {
-		return compteMetier.getCompte(idCompte);
+	public Compte getById(@PathVariable("idCompte") Long idCompte) {
+		return compteMetier.getById(idCompte);
 	}
 	
 	
