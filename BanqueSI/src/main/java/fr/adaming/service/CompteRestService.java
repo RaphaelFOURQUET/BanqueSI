@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import javax.ws.rs.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +20,21 @@ public class CompteRestService {
 	private ICompteMetier compteMetier;
 
 	@RequestMapping(value="/comptes",method=RequestMethod.POST)
-	public Compte saveCompte(@RequestBody Compte compte) {
-		return compteMetier.saveCompte(compte);
+	public Compte save(@RequestBody Compte compte) {
+		return compteMetier.save(compte);
 	}
 
+	@RequestMapping(value="/comptes",method=RequestMethod.GET)
+	public List<Compte> list() {
+		return compteMetier.list();
+	}
+	
 	@RequestMapping(value="/comptes/{idCompte}",method=RequestMethod.GET)
 	public Compte getCompte(@PathParam("idCompte") Long idCompte) {
 		return compteMetier.getCompte(idCompte);
 	}
+	
+	
 
 
 }

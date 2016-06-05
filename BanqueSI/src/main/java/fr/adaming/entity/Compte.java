@@ -55,8 +55,8 @@ public abstract class Compte implements Serializable {
 		return idCompte;
 	}
 
-	public void setIdCompte(Long numCompte) {
-		this.idCompte = numCompte;
+	public void setIdCompte(Long idCompte) {
+		this.idCompte = idCompte;
 	}
 
 	public double getSolde() {

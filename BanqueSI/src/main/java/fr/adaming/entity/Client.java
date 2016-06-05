@@ -20,7 +20,7 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long idClient;
+	private Long codeClient;
 	
 	private String nomClient;
 	
@@ -29,11 +29,11 @@ public class Client implements Serializable {
 	
 	//ACCESSEURS
 	public Long getCodeClient() {
-		return idClient;
+		return codeClient;
 	}
 
 	public void setCodeClient(Long codeClient) {
-		this.idClient = codeClient;
+		this.codeClient = codeClient;
 	}
 
 	public String getNomClient() {
@@ -71,7 +71,7 @@ public class Client implements Serializable {
 			myComptes += p.getIdCompte()+", ";
 		}
 		myComptes += "]";
-		return "Client [idClient=" + idClient + ", nomClient=" + nomClient + ", comptes=" + myComptes + "]";
+		return "Client [codeClient=" + codeClient + ", nomClient=" + nomClient + ", comptes=" + myComptes + "]";
 	}
 	
 	

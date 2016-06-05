@@ -6,4 +6,4 @@ Employe :
 	{"nomEmploye":"Employe2", "superieurHierarchique":{"idEmploye":1}}
 
 Compte :
-	{"solde":250000,"type":"CC","decouvert":1000,"proprietaire":{"idClient":1}, "employe":{"idEmploye":1}}
+	{"solde":250000,"type":"CC","decouvert":1000,"proprietaire":{"codeClient":1}, "employe":{"idEmploye":1}}
