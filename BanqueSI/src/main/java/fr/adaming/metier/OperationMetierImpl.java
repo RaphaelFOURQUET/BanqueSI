@@ -17,13 +17,13 @@ public class OperationMetierImpl implements IOperationMetier {
 
 	@Override
 	public Operation save(Operation o) throws ForbiddenOperationException {
-		throw new ForbiddenOperationException("You're supposed to access Operation via Retrait(/retraits) or Versement(/versements).");
+		throw new ForbiddenOperationException("Forbidden Access : You're supposed to access Operation via Retrait(/retraits) or Versement(/versements), or by HTTP.GET on /operations only.");
 //		return operationRepositoryDao.save(o);
 	}
 
 	@Override
 	public Operation getById(Long id) throws ForbiddenOperationException {
-		throw new ForbiddenOperationException("You're supposed to access Operation via Retrait(/retraits) or Versement(/versements).");
+		throw new ForbiddenOperationException("Forbidden Access : You're supposed to access Operation via Retrait(/retraits) or Versement(/versements), or by HTTP.GET on /operations only.");
 		//return operationRepositoryDao.findOne(id);
 	}
 
