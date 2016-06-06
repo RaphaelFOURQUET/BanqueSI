@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entity.Compte;
+import fr.adaming.exception.ForbiddenOperationException;
 import fr.adaming.metier.ICompteMetier;
 
 @RestController
@@ -19,7 +20,7 @@ public class CompteRestService {
 	private ICompteMetier compteMetier;
 
 	@RequestMapping(value="/comptes",method=RequestMethod.POST)
-	public Compte save(@RequestBody Compte compte) {
+	public Compte save(@RequestBody Compte compte) throws ForbiddenOperationException {
 		return compteMetier.save(compte);
 	}
 
@@ -29,7 +30,7 @@ public class CompteRestService {
 	}
 	
 	@RequestMapping(value="/comptes/{idCompte}",method=RequestMethod.GET)
-	public Compte getById(@PathVariable("idCompte") Long idCompte) {
+	public Compte getById(@PathVariable("idCompte") Long idCompte) throws ForbiddenOperationException {
 		return compteMetier.getById(idCompte);
 	}
 	

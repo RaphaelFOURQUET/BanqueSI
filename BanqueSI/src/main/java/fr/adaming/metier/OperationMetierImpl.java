@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.IOperationRepositoryDao;
 import fr.adaming.entity.Operation;
+import fr.adaming.exception.ForbiddenOperationException;
 
 @Service
 public class OperationMetierImpl implements IOperationMetier {
@@ -15,13 +16,15 @@ public class OperationMetierImpl implements IOperationMetier {
 	private IOperationRepositoryDao operationRepositoryDao;
 
 	@Override
-	public Operation save(Operation o) {
-		return operationRepositoryDao.save(o);
+	public Operation save(Operation o) throws ForbiddenOperationException {
+		throw new ForbiddenOperationException("You're supposed to access Operation via Retrait(/retraits) or Versement(/versements).");
+//		return operationRepositoryDao.save(o);
 	}
 
 	@Override
-	public Operation getById(Long id) {
-		return operationRepositoryDao.findOne(id);
+	public Operation getById(Long id) throws ForbiddenOperationException {
+		throw new ForbiddenOperationException("You're supposed to access Operation via Retrait(/retraits) or Versement(/versements).");
+		//return operationRepositoryDao.findOne(id);
 	}
 
 	@Override

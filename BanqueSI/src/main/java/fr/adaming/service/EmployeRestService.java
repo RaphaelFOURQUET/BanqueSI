@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entity.Employe;
+import fr.adaming.exception.ForbiddenOperationException;
 import fr.adaming.metier.IEmployeMetier;
 
 //Service RestFull
@@ -20,12 +21,12 @@ public class EmployeRestService {
 	private IEmployeMetier employeMetier;
 
 	@RequestMapping(value="/employes/{idEmploye}",method=RequestMethod.GET)
-	public Employe getById(@PathVariable("idEmploye") Long idEmploye) {
+	public Employe getById(@PathVariable("idEmploye") Long idEmploye) throws ForbiddenOperationException {
 		return employeMetier.getById(idEmploye);
 	}
 
 	@RequestMapping(value="/employes",method=RequestMethod.POST)
-	public Employe save(@RequestBody Employe t) {
+	public Employe save(@RequestBody Employe t) throws ForbiddenOperationException {
 		return employeMetier.save(t);
 	}
 

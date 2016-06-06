@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entity.Groupe;
+import fr.adaming.exception.ForbiddenOperationException;
 import fr.adaming.metier.IGroupeMetier;
 
 @RestController	
@@ -19,12 +20,12 @@ public class GroupeRestService {
 	private IGroupeMetier groupeMetier;
 
 	@RequestMapping(value="/groupes", method=RequestMethod.POST)
-	public Groupe save(@RequestBody Groupe t) {
+	public Groupe save(@RequestBody Groupe t) throws ForbiddenOperationException {
 		return groupeMetier.save(t);
 	}
 
 	@RequestMapping(value="/groupes/{idGroupe}", method=RequestMethod.GET)
-	public Groupe getById(@PathVariable("idGroupe") Long id) {
+	public Groupe getById(@PathVariable("idGroupe") Long id) throws ForbiddenOperationException {
 		return groupeMetier.getById(id);
 	}
 

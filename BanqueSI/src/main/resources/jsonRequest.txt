@@ -11,6 +11,6 @@ Compte :
 Groupe :
 	{"nomGroupe":"groupe1"}
 	
-Retrait/Versement :
+Retrait/Versement :	même requete mais sur deux URL differents /retraits ou /versements
 	{"montant":50, "compte":{"idCompte":1, "type":"CC"}, "employe":{"idEmploye":1}}
 	

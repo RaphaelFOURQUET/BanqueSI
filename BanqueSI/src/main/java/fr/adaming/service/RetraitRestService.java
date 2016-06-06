@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entity.Retrait;
+import fr.adaming.exception.ForbiddenOperationException;
 import fr.adaming.metier.IRetraitMetier;
 
 @RestController
@@ -19,12 +20,12 @@ public class RetraitRestService {
 	private IRetraitMetier retraitMetier;
 
 	@RequestMapping(value="/retraits",method=RequestMethod.POST)
-	public Retrait save(@RequestBody Retrait t) {
+	public Retrait save(@RequestBody Retrait t) throws ForbiddenOperationException {
 		return retraitMetier.save(t);
 	}
 
 	@RequestMapping(value="/retraits/{idOperation}",method=RequestMethod.GET)
-	public Retrait getById(@PathVariable("idOperation") Long id) {
+	public Retrait getById(@PathVariable("idOperation") Long id) throws ForbiddenOperationException {
 		return retraitMetier.getById(id);
 	}
 
