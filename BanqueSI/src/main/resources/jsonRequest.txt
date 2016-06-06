@@ -12,5 +12,5 @@ Groupe :
 	{"nomGroupe":"groupe1"}
 	
 Retrait/Versement :
-	{"montant":50, "codeCompte":1, "codeEmploye":1}
+	{"montant":50, "compte":{"idCompte":1, "type":"CC"}, "employe":{"idEmploye":1}}
 	
